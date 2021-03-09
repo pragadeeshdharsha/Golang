@@ -1,0 +1,17 @@
+syntax="proto3";
+option go_package = ".;pb";
+package proto;
+
+message ClientRequest{
+    int64 first_num = 1;
+    int64 second_num = 2;
+}
+
+message ServerResponse{
+    int64 result = 1;
+}
+
+service CalcService{
+    rpc Add(ClientRequest) returns (ServerResponse);
+    rpc Multiply(ClientRequest) returns (ServerResponse);
+}
